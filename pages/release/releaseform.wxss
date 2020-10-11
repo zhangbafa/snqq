@@ -1,0 +1,19 @@
+page{
+  
+}
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+.cu-form-group textarea {
+margin:32rpx 0 30rpx;
+height:10em;
+width:100%;
+line-height:1.2em;
+flex:1;
+font-size:28rpx;
+padding:0;
+}
+.bg-gray{
+	background: #e0dcdc
+}
+

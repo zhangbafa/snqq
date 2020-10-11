@@ -1,0 +1,19 @@
+<view class="box bg-white padding-top-xs padding-bottom-xs" style="height: 140rpx;" wx:if="{{display}}">
+    <view class="grid flex-sub col-3 grid-square">
+        <view class="flex-sub">
+            <view class="title text-lg margin-bottom padding-top-sm">
+                <view class="flex text-bold padding-left text-red">实时</view>
+                <view class="flex text-bold padding-left text-red">热点</view>
+            </view>
+        </view>
+        <view class="flex-treble-index hotswiper">
+            <swiper class="bg-white hot" indicator-dots="false" indicator-color="transparent" indicator-active-color="transparent" circular="true" autoplay="true" interval="5000" duration="500" vertical="true">
+                <swiper-item wx:for="{{hotdata}}" wx:key>
+                    <view style="padding-top: 14rpx;" bindtap="hotnews">
+                    {{item.title}}
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+</view>

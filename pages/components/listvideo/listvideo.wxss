@@ -1,0 +1,13 @@
+.snqq-margin-bottom-sm{
+  margin-bottom: 2rpx;
+}
+
+.cu-list.menu-avatar>.cu-item>.cu-avatar {
+left: 0rpx;
+}
+.cu-list.menu-avatar>.cu-item .content {
+left: 80rpx;
+line-height: 1.6em;
+
+}
+

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "listdata": "../components/listdata/listData",
+    "listvideo": "../components/listvideo/listvideo"
+  }
+}

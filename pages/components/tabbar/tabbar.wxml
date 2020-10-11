@@ -1,0 +1,18 @@
+<view class="box fixed-bottom solid-top">
+  <view class="cu-bar tabbar bg-white">
+    <view class=" text-xl action {{isCurrPage=='index'?'text-red':'text-gray'}}" bindtap="tabBarChange" data-url="index" >
+      <view class="cuIcon-home"></view> 首页
+    </view>   
+    <view class="action {{isCurrPage=='release'?'text-red':'text-gray'}}" bindtap='tabBarChange' data-url="release">
+      <view class="cuIcon-post">       
+      </view>
+      发布
+    </view>
+    <view class="action {{isCurrPage=='my'?'text-red':'text-gray'}}" bindtap='tabBarChange' data-url="my">
+      <view class="cuIcon-my">        
+      </view>
+      我的
+    </view>    
+  </view>
+ </view>
+ 

@@ -1,0 +1,23 @@
+<navBar  background='#fff' back='true' home='true' title="登录">
+ </navBar>
+<view style="margin-top:150rpx;">
+  <view class="text-center" style="margin-bottom:100rpx;">
+  <image src='/images/logo.png' style="width:346rpx;height:96rpx"></image>
+  </view>
+<button class="margin cu-btn bg-green flex  lg text-lg padding" open-type="getUserInfo" bindgetuserinfo="getUserInfo"  wx:if="{{!hasUserInfo && canIUse}}">
+	微信授权登录
+</button>
+<button class="cu-btn margin bg-green lg text-lg flex button-hover" bindtap="openSetting" wx:if="{{authstats}}">
+ 	打开授权设置页
+ </button>
+<!-- <button class="cu-btn margin bg-red lg text-lg flex button-hover" bindtap="loginPhone">
+ 	手机登录
+ </button> -->
+ <button class="cu-btn margin  lg text-lg flex button-hover" bindtap="tohome">
+ 	首页
+ </button>
+</view>
+
+
+
+ 

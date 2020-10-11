@@ -1,0 +1,4 @@
+.hotswiper{
+  margin-top: 10rpx;
+  text-overflow: ellipsis
+}

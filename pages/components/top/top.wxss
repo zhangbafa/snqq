@@ -1,0 +1,9 @@
+.right-fixed-widgets{
+	position: fixed;
+	bottom: 120rpx;
+	right: 10rpx;
+}
+
+.right-fixed-widgets .bg-red{
+	background-color: rgba(229, 77, 66, .8)
+}

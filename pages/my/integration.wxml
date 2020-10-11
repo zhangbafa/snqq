@@ -1,0 +1,6 @@
+<navBar  background='#fff' back='true' home='true' title="当前积分">
+ </navBar>
+
+<view class="text-center text-xl" style="margin-top:200rpx;font-size: 40px;">
+当前积分：{{jifen}}
+</view>

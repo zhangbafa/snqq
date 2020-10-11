@@ -1,0 +1,51 @@
+<navBar  background='#fff' back='true' home='true' title="我的信息">
+ </navBar>
+
+<scroll-view scroll-x class="bg-white nav text-lg">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{tabarr}}" wx:key bindtap="tabSelect" data-id="{{index}}" >
+      {{item}}
+    </view>
+  </view>
+</scroll-view>
+<view style="height: 100rpx;"></view>
+
+
+
+  <view class="cu-card margin-bottom-xs bg-white padding margin-top-xs" bindtap="todetail"  wx:for="{{my}}" wx:key data-id="{{item.id}}" data-safe="{{item.safe}}">
+
+     <text class="text-white bg-red text-sm safe-tag" wx:if="{{item.safe==0}}">审核中</text>
+  	 <view class="text-lg margin-bottom">
+       {{item.title}}
+    </view>
+    <view class="padding bg-gray radius" wx:if="{{comment}}">
+    	<view  wx:for="{{item.review}}" wx:for-item="pl" wx:key='d' class="solid-bottom padding-xs">
+    		{{pl.revmsg}}
+    		<view class="text-xs text-gray">{{pl.revdate}}</view>
+    	</view>
+    </view>
+     <view class="text-gray text-sm text-left margin-top ">
+       <view class='margin-top-sm flex justify-between'>          
+          <view class="cu-tag  {{index%2==1?'bg-green':''}} light sm round">{{item.typename}} </view>          
+          
+          <view class="text-gray text-sm">
+          <text class="margin-lr-xs"></text>{{item.revdate}}
+          <text class="cuIcon-attentionfill margin-lr-xs"></text>{{item.click}}
+          <text class="cuIcon-appreciatefill margin-lr-xs"></text>{{item.diggnum}}
+          <text class="cuIcon-messagefill margin-lr-xs"></text>{{item.revnum}}
+        </view>
+        </view>      
+    </view> 
+  </view>
+
+
+
+
+
+ 
+
+<view class="right-fixed-widgets">  
+  <view class="bg-red  padding-sm round" bindtap="gotop" wx:if="{{gotop}}">
+    <text class="cuIcon-top">TOP</text>
+  </view>
+</view>

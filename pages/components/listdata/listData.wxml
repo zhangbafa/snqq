@@ -1,0 +1,50 @@
+<block wx:for="{{qqdata}}" wx:key wx:for-index="idx">
+  <view class="cu-card dynamic no-card radius margin-bottom-xs snqq-list-box" bindtap="todetail" data-id="{{item.id}}" data-typename="{{item.typename}}">  
+    <view class="cu-item shadow padding">   
+    <!-- 用户信息 -->
+     <!-- <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+        <view class="content">
+          <view class="text-grey">zhang</view>
+          <view class="text-gray text-content text-df">
+            10 秒前
+          </view>
+      </view>   
+  </view>
+  </view> -->
+      <!-- 标题 -->
+      <view class="text-lg  margin-bottom" wx:if="{{item.picnum==0}}">{{item.title}}</view>
+      <!-- 一张或二张图 -->
+      <view class="grid flex-sub col-3 grid-square" wx:if="{{item.picnum==2 || item.picnum==1}}">
+        <view class="flex-treble">
+          <view class="title text-lg margin-bottom">{{item.title}}</view>
+        </view>
+        <view class="bg-img" style="background-image:url({{PicNetUrl}}{{item.pic[0]}});"></view>
+      </view>
+      <!-- 三张或更过图片 -->
+      <view wx:if="{{item.picnum>=3}}">
+        <view class="text-lg margin-bottom">{{item.title}}</view>
+        <view class="grid flex-sub col-3 grid-square">
+          <view class="bg-img" style="background-image:url({{PicNetUrl}}{{img}});" wx:for="{{item.pic}}" wx:for-item="img" wx:key></view>
+        </view>
+      </view>
+      <!-- 底部标签栏 -->
+      <view class="text-gray text-sm text-left margin-top">
+        <view class='margin-top-sm grid  justify-between'>
+          <view class="cu-tag  {{idx%2==1?'bg-green':'bg-red'}} light sm round">{{item.typename}}</view>
+          <view class="text-gray text-sm">
+            <!-- <text class="margin-lr-xs"></text> -->
+            {{item.date}}
+            <text class="cuIcon-attentionfill margin-left-xs"></text>
+            {{item.click}}
+            <text class="cuIcon-appreciatefill margin-left-xs"></text>
+            {{item.diggnum}}
+            <text class="cuIcon-messagefill margin-left-xs"></text>
+            {{item.revnum}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>

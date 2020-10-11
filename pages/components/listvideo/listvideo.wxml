@@ -1,0 +1,33 @@
+<!--pages/components/video/video.wxml-->
+
+<block wx:for="{{qqdata}}" wx:key wx:for-index="idx">
+  <view class="cu-card dynamic no-card radius margin-bottom-xs snqq-list-box" bindtap="todetail" data-id="{{item.id}}" data-typename="{{item.typename}}">  
+    <view class="cu-item shadow padding">  
+      <view class="text-lg  margin-bottom" wx:if="{{item.picnum==0}}">{{item.title}}</view>
+      <!-- 一张或二张图 -->
+      <view class="" wx:if="{{item.picnum==2 || item.picnum==1}}">
+        
+        <view class="title text-lg margin-bottom">{{item.title}}</view>
+        <image src="{{PicNetUrl}}{{item.pic[0]}}"  mode="widthFix"></image>
+        <!-- <view class="bg-img" style="background-image:url({{PicNetUrl}}{{item.pic[0]}});"></view> -->
+      </view>
+   
+      <!-- 底部标签栏 -->
+      <view class="text-gray text-sm text-left margin-top">
+        <view class='margin-top-sm grid  justify-between'>
+          <view class="cu-tag  {{idx%2==1?'bg-green':'bg-red'}} light sm round">{{item.typename}}</view>
+          <view class="text-gray text-sm">
+            <!-- <text class="margin-lr-xs"></text> -->
+            {{item.date}}
+            <text class="cuIcon-attentionfill margin-left-xs"></text>
+            {{item.click}}
+            <text class="cuIcon-appreciatefill margin-left-xs"></text>
+            {{item.diggnum}}
+            <text class="cuIcon-messagefill margin-left-xs"></text>
+            {{item.revnum}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>

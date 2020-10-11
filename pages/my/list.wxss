@@ -1,0 +1,26 @@
+/* pages/my/list.wxss */
+
+.cur{
+	font-size: 36rpx;
+	font-weight: bold;
+}
+
+.text-orange, .line-orange, .lines-orange {
+	color: #e93b3d;
+}
+.nav{
+	position: fixed;
+}
+
+scroll-view {
+	z-index: 20
+}
+.cu-card{
+  position: relative;
+}
+.safe-tag{
+  position: absolute;
+  right:0;
+  top:0;
+  padding: 10rpx;
+}

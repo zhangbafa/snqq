@@ -1,0 +1,20 @@
+
+.margin-bottom-xs{
+  margin-bottom: 2rpx;
+}
+
+
+.text-orange, .line-orange, .lines-orange {
+	color: #e93b3d;
+}
+.nav{
+	position: fixed;
+}
+
+scroll-view {
+	z-index: 20
+}
+
+.snqq-list-bg-red{
+	background-color: rgb(250, 219, 217)
+}

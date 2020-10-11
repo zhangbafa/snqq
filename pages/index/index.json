@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "listdata": "../components/listdata/listData",
+    "hot": "../components/hotdata/hotData"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

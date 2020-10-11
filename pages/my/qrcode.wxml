@@ -1,0 +1,14 @@
+<navBar  background='#fff' back='true' home='true' title="微信公众号">
+ </navBar>
+ 
+<view class="qcode-box shadow shadow-lg">
+	<view class="solid qcode">	
+      <image src="{{url}}" data-url="{{url}}" bindlongpress="saveImage"></image>
+   
+	</view>
+ 
+</view>
+<view class="qcode-text padding text-black text">
+ <view>保存图片到相册（长按保存或截图） </view>
+ <view class='margin-top-sm'>微信 - 扫一扫 - 选择相册二维码图片 - 添加微信 </view>
+</view>

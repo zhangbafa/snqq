@@ -1,0 +1,184 @@
+<import src="../../wxParse/wxParse.wxml"/>
+ <navBar background='#fff' back="true">
+ <view slot="left" class="text-black text-lg text-bold">详情</view>
+</navBar>
+<view class="bg-white padding-top">
+  
+  <view>
+    <view class="padding-left padding-bottom-sm">
+    <block wx:if="{{detailData.facepic}}">
+    <view class="cu-avatar  round" style="background-image:url({{detailData.facepic}});" ></view>
+    </block>
+    <block wx:else>
+    <view class="cu-avatar  round  anonymity-head">
+     <text class="cuIcon-people text-xxl text-black"></text> 
+    </view>
+    </block>
+    <text class="text-lg margin-left-sm" wx:if="{{detailData.name}}">{{detailData.name}}</text>  
+    <text class="text-right text-sm margin-left" style="margin-top: 4rpx;">{{detailData.date}}</text> 
+  </view>
+  <!-- 发布信息的位置 -->
+<view class="padding" wx:if="{{detailData.address}}">
+     <text class="cuIcon-location text-lg"></text> 
+      <text> {{detailData.address}}</text>
+ </view> 
+  </view>
+</view>
+<view class="padding-sm bg-white">
+  <view class="solid-bottom" style="height: 2rpx;"></view>
+</view>
+
+<view class="contents padding  text-lg bg-white">  
+  <view class="margin-bottom">
+      <view style="display: block">
+        <video class= "videoCss" title="{{detailData.title}}" src="{{imgpath}}{{detailData.vod}}"  objectFit='cover' show-center-play-btn = true  controls  page-gesture = "true" enable-progress-gesture = true wx:if="{{detailData.vod}}" poster="{{imgpath}}/uploads{{detailData.vodpost}}"></video>
+      </view>
+    <block wx:if="{{wxparse}}">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </block>
+    <block wx:else>
+      <view>
+        <text>
+        {{detailData.content}}
+        </text>
+        
+      </view>
+    </block>
+  
+
+  </view>
+  <view class="text-center" >   
+   <image src="{{imgpath}}{{img}}" wx:for="{{detailData.pic}}" wx:for-item="img" wx:key mode="widthFix" 
+       style="width:100%;background-color:#efefef;" lazy-load></image>
+  </view>  
+    <view class="solid-top  margin-top padding-top">联系我时，请说是在睢宁圈圈看到的，谢谢！</view>
+</view>
+
+
+
+  <view class="flex justify-between bg-white text-df">
+    <view class="text-gray padding">
+      <text> 阅读 {{detailData.click}}</text>      
+    </view>
+    <view class="text-gray text-center padding">      
+      <view class=" margin-lr-xs {{detailClick?'text-red':''}} animation-{{animation}} animation-reverse" catchtap="detailClick">点赞 {{detailData.diggnum}}
+        
+      </view> 
+  </view>
+  </view>
+
+
+
+
+<view class="solid-bottom bg-white margin-top-sm flex">
+  <view class="flex-sub text-left text-lg padding text-black ">留言互动</view>
+  <view class="flex-sub text-right text-lg padding text-red" bindtap="showModal" data-target="bottomModal">
+  <text class="cuIcon-edit"></text>写留言
+  </view>
+</view>
+<!-- comments -->
+<view>
+ <view class="cu-list menu-avatar comment ">
+      <view class="cu-item" wx:for="{{comments}}" wx:key>
+        <view class="cu-avatar round" style="background-image:url({{item.facepic}});"></view>
+        <view class="content">
+          <view class="text-grey">{{item.name}}</view>
+          <view class="text-gray text-content text-df">
+            {{item.revmsg}}
+          </view>
+          
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">{{item.revdate}}</view>
+            <view>
+              <view class="cuIcon-appreciatefill {{item.isdigg?'text-red':'text-gray'}}" data-id="{{item.revid}}" bindtap='zanComments'> {{item.diggnum}}</view>
+              <!-- <text class="cuIcon-messagefill text-gray margin-left-sm"></text> -->
+            </view>
+          </view>
+        </view>
+      </view>   
+</view>
+
+<!-- 添加评论 -->
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">    
+      <text></text>  
+      <view class="action text-red" bindtap="hideModal">取消</view>
+    </view>
+    <view class="bg-white" style="background: #fff;">
+      <view class="margin-top-xs  margin-bottom-xs" id="comments">
+<form  bindsubmit="formSubmit" bindreset="formReset">
+    
+      
+
+      
+		<textarea name="msg"   fixed="true"  cursor-spacing="200" adjust-position="true"  placeholder="评论 @{{username}}" value="{{comment_input}}" bindfocus="commentInputFocus" ></textarea>
+	
+    
+    <view class="margin-top padding flex flex-direction">    
+      <button class="cu-btn bg-red shadow-blur" form-type="submit">
+      
+      发送
+      </button>
+    </view>
+
+  </form>
+</view>
+    </view>
+  </view>
+</view>
+<!--  -->
+
+
+
+</view>
+
+<!-- recommend -->
+<view class="">
+<view class="solid-bottom margin-top bg-white">
+  <view class="text-left text-lg padding text-black">为你推荐</view>
+  </view>
+
+<view style='margin-bottom: 120rpx;'>
+<listdata qqdata="{{tj}}"></listdata>
+</view>
+</view>
+  <view class="cu-bar bg-white tabbar text-xl border shop fixed-bottom solid-top">
+    <view class="action text-xl" bindtap="tohome">
+      <view class="cuIcon-home text-red">
+      </view>
+      首页
+    </view>
+
+    <view class="action text-xl" bindtap="favor" data-id="{{detailData.id}}">
+      <view class="cuIcon-favor{{favstatus?'fill':''}} text-red">
+      </view>
+      收藏
+    </view>
+   
+    <button class="action text-xl" open-type="share">
+      <view class="cuIcon-share text-red">
+      </view>
+      分享
+    </button>
+  <view class="action text-xl" bindtap="favor" data-id="{{detailData.id}}" bindtap="showModal" data-target="bottomModal">
+      <view class="cuIcon-edit text-red">
+      </view>
+      留言
+    </view>
+    <view class="bg-red submit" bindtap="callphone" wx:if="{{calltel_button}}">
+      拨打电话
+    </view>
+    <!-- <view class="submit bg-gray" wx:else>
+      拨打电话
+    </view> -->
+   
+    
+  </view>
+
+<!-- <view class="fixed-bottom-lo round" wx:if="{{islook}}">
+  <view class="padding-sm">
+    <text class="cuIcon-notification"> 附近有 100 位网友正在看 </text>
+  </view>
+</view> -->
+<top></top>

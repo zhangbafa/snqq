@@ -1,0 +1,35 @@
+<!-- <cu-custom bgColor="bg-suining" isCustom="{{true}}">
+	<view slot="backText" >返回</view>
+	<view slot="content" class="text-black text-bold">{{categoryName}}</view>
+</cu-custom> -->
+ <navBar  background='#fff' back='true' home='true' title="{{categoryName}}">
+ </navBar>
+
+<block wx:if="{{Category}}">
+
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item  flex-sub text-lg {{index==TabCur?'text-red cur':''}}" wx:for="{{Category}}" wx:key bindtap="tabSelect" data-id="{{index}}" data-subclassid="{{item.typeid}}" bindtap="tabSelect" data-id="{{index}}">
+      {{item.name}}
+    </view>
+    </view>
+</scroll-view>
+<view style="height: 90rpx;"> ... </view>
+</block>
+
+<view style="margin-top: 20rpx;"></view>
+
+<block wx:if="{{typeid==10}}">
+<listvideo qqdata="{{listData}}"></listvideo>
+</block>
+<block wx:else>
+<listdata qqdata="{{listData}}"></listdata>
+</block>
+
+<view style='height: 240rpx;'>
+  <view class="text-center padding text-gray">没有了</view>
+</view>
+
+
+
+<top></top>

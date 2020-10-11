@@ -1,0 +1,57 @@
+@import "/wxParse/wxParse.wxss";
+@import "/colorui/animation.wxss";
+.contents{
+  line-height: 2;  
+}
+.margin-bottom-xs {
+	margin-bottom: 10rpx;
+}
+
+.fixed-bottom button{
+  background: #fff;
+  border-radius: 0;
+}
+.callphone{
+  background: transparent;
+  width: 100%;
+  height: 100%;
+}
+.margin-xs{
+  margin: 2rpx;
+}
+
+.videoCss{
+  width: 100%;
+}
+.fixed-bottom-lo{
+  right:10rpx;
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  float: right;
+  position: fixed;
+  bottom: 200rpx;
+  width: 60%;
+  z-index: 2;
+}
+
+.fixed-bottom{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+
+textarea{
+  border:1px solid #fafafa;
+  width: 100%; 
+  padding: 20rpx;
+  text-align: left;
+  background: #fff;
+}
+from{
+  background: #fff;
+}
+.anonymity-head{
+  background: #eee
+}

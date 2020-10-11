@@ -1,0 +1,31 @@
+/**app.wxss**/
+@import "colorui/main.wxss";
+@import "colorui/icon.wxss";
+@import "/wxParse/wxParse.wxss";
+
+.right-fixed-widgets{
+	position: fixed;
+	bottom: 120rpx;
+	right: 10rpx;
+}
+
+.right-fixed-widgets .bg-red{
+	background-color: rgba(229, 77, 66, .8)
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+  font-size: 16px;
+} 
+.snqq-list-box{
+  margin: 20rpx;
+}
+.round{
+  border-radius: 1000px;
+}

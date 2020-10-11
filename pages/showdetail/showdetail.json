@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "listdata": "../components/listdata/listData"
+  }
+}

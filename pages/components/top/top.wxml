@@ -1,0 +1,9 @@
+<view class="right-fixed-widgets">
+  <view class="bg-red padding-sm round margin-bottom" bindtap="gorelease">
+    <text class="cuIcon-post"> 发布 </text>
+  </view>
+  <view class="bg-red  padding-sm round" bindtap="gotop" wx:if="{{gotop}}">
+    <text class="cuIcon-top"> Top </text>
+  </view>
+  
+</view>

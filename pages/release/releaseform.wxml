@@ -1,0 +1,79 @@
+ <navBar  background='#fff' back='true' home='true'>
+ </navBar>
+
+<form class="padding-top" bindsubmit="formSubmit" bindreset="formReset"  report-submit="true">
+  <!-- <view class="cu-form-group">
+    <input placeholder="请填写标题" name="title"  value="{{form.title}}"></input>    
+  </view> -->
+  <view class="cu-form-group">
+    <textarea maxlength="2000" bindinput="textareaAInput" placeholder="请不要在此填写手机号、微信号、QQ号等联系方式，联系电话请在下方填写！" name="content"></textarea>
+  </view>
+  <view class="cu-form-group" wx:if="{{classID!=1}}">
+    <input type="number" placeholder="请填写联系电话" name="phone" value="{{phonenum}}" bindinput="inputmobile" class="phone"></input>
+    <view class="cu-capsule bg-white  padding radius" wx:if="{{input_phone || phonenum }}" bindtap="clearphone">
+      <view class="text-xl">
+        <text class="cuIcon-roundclosefill lg text-gray"></text>
+      </view>
+    </view>
+  </view>
+  <view class="cu-bar bg-white margin-top-sm">
+    <view class="action">
+      添加图片
+    </view>
+    <view class="action">
+      {{imgList.length}}/9
+    </view>
+  </view>
+  
+  <view class="cu-form-group">
+    <view class="grid col-4 grid-square flex-sub">
+      <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+        <image src='{{imgList[index]}}' mode='aspectFill'></image>
+        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <text class="cuIcon-close"></text>
+        </view>
+      </view>
+      <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<90}}">
+        <text class="cuIcon-cameraadd"></text>
+      </view>
+    </view>
+  </view>
+    <view class="cu-bar bg-white margin-top-sm solid-bottom" bindtap="choosevideo">
+    <view class="cu-form-group">
+      <text class="cuIcon-video" style="margin-right: 4rpx;"></text> 
+      添加小视频
+    </view>
+  </view>
+  <!-- 视频预览 -->
+  <view wx:if="{{videodisp}}" class="bg-white text-center padding-xs">
+  <view class="cu-bar bg-white margin-top-xs text-sm">
+    <view class="action">
+    </view>
+    <view class="action text-red" bindtap="Delvideo">
+      删除视频
+    </view>
+  </view>
+    <video src="{{video}}" custom-cache="{{false}}" object-fit="cover" poster="{{videopost}}"></video>
+  </view>
+  
+      <view class="cu-form-group">
+      <text class="cuIcon-location" style="margin-top:4rpx;"></text> 
+      <input placeholder="请填写地址" name="address"  value="{{location.address}}"></input>
+       <view class="cu-capsule bg-white  padding-sm radius" bindtap="clearaddress">
+      <view class="text-xl">
+        <text class="cuIcon-roundclosefill lg text-gray"></text>
+      </view>
+    </view> </view>
+
+
+  <view class="flex padding-xs ">
+    <view class="flex-sub margin-sm">
+      <button class="cu-btn bg-gray lg flex block"  bindtap="cancelRelease">取消</button>
+    </view>
+  <view class=" flex-twice margin-sm">
+      <button class="cu-btn bg-green lg flex" form-type="submit">发布</button>
+    </view>
+    
+  </view>
+
+</form>

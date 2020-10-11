@@ -1,0 +1,53 @@
+<navBar  background='#fff'>
+ <view slot="left" class="text-xs text-black text-bold" style="margin-left: 30rpx;">
+    <image src="/images/logo.png" class="logo"></image>
+  </view>
+ </navBar>
+
+<view class='tips' style="top:{{CustomBar}}px;" bindtap='closetips' wx:if="{{tips}}">
+  点击 <text class="cuIcon-more"></text> 可以收藏小程序
+<text class="cuIcon-roundclosefill text-white"></text>
+</view>
+
+<view class="skeleton">
+<swiper class="screen-swiper square-dot skeleton-rect" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" >
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image lazy-load src="{{item.url}}" mode="widthFix" wx:if="{{item.type=='image'}}" ></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  </swiper-item>
+</swiper>
+
+
+<view class="bg-white category-nav solid-bottom pp">
+    <view class="grid  padding-top padding-bottom text-center col-5" >
+      <view wx:for="{{Category}}" wx:key bindtap='tonav' data-typeid='{{item.typeid}}' data-categoryname='{{item.name}}'   class="margin-tb-sm">     
+        <view>
+          <image src="{{item.icon}}" lazy-load  class="skeleton-radius"></image>
+        </view> {{item.name}}     
+      </view>
+    </view>
+</view>
+<!-- <hot display="false" hotdata="{{realTimeData}}"></hot> -->
+ <view class="cu-bar bg-white solid-bottom skeleton-rect ddd">
+    <view class="action text-bold">
+      <text class="cuIcon-titles text-red"></text>
+      最新信息
+    </view>
+  </view>
+
+ 
+
+<listdata qqdata="{{realTimeData}}"></listdata>
+
+<view style='height: 240rpx;'>
+  <view class="text-center padding text-gray">没有了</view>
+</view>
+</view>
+<tabbar isCurrPage='index'  bindchangeName="changeName"></tabbar>
+
+<top></top>
+<!-- <view class="right-fixed-widgets">  
+  <view class="bg-red  padding-sm round" bindtap="gotop" wx:if="{{gotop}}">
+    <text class="cuIcon-top">TOP</text>
+  </view>
+</view> -->

@@ -1,0 +1,24 @@
+<navBar  background='#fff'>
+ <view slot="left" class="text-lg text-black text-bold" style="margin-left: 30rpx;">
+    发布
+  </view>
+ </navBar>
+  <view class="cu-bar  margin-top margin-bottom">
+    <view class="action">
+      <view class="text-xxl">您想发布哪种信息？</view> 
+    </view>
+  </view>
+  <view class="cu-list menu-avatar grid col-2">
+    <view class="cu-item" wx:for="{{Category}}" wx:key bindtap="showModal"  data-id="{{item.typeid}}" data-index="{{index}}">
+      <view class="cu-avatar lg">
+        <image src="{{item.icon}}" lazy-load></image>
+      </view>
+      <view class="content">
+        <view class="text-black text-xl">{{item.name}}</view>
+        <view class="text-gray text-sm text-left">{{item.text}}</view>
+      </view>
+    </view>
+  </view>
+
+
+<tabbar isCurrPage="release"></tabbar>

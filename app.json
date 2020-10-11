@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/release/releaseform",
+    "pages/my/my",
+    "pages/showdetail/showdetail",
+    "pages/release/release",
+    "pages/list/list",
+    "pages/my/validatephone",
+    "pages/my/list",
+    "pages/my/qrcode",
+    "pages/my/wxauth",
+    "pages/my/integration"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#e93b3d",
+    "navigationBarTitleText": "睢宁圈圈",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "onReachBottomDistance": 140
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom",
+    "navBar": "/pages/components/navBar/navBar",
+    "tabbar": "/pages/components/tabbar/tabbar",
+    "top": "/pages/components/top/top"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

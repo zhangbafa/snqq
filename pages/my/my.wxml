@@ -1,0 +1,108 @@
+<navBar  background='#fff'>
+ <view slot="left" class="text-lg text-black text-bold" style="margin-left: 30rpx;">
+    我的
+  </view>
+ </navBar>
+  <view class="bg" wx:if="{{bind}}">  
+     <view  class="margin-top"  style="background-image:url({{userInfo.avatarUrl}});filter:blur(100px);transform:scale(1);height: 200rpx;position: relative;z-index: 0">
+    <open-data type="userAvatarUrl" class="round"></open-data>
+
+  </view>
+  <view class="flex padding text-white" style="position: absolute;z-index: 10;top: 200rpx;width: 100%;">
+        <view class="flex-sub">
+          <view class="text-xs">
+          <view class="cu-avatar lg round " style="overflow: hidden;background-image:url({{userInfo.avatarUrl}});">
+            <open-data type="userAvatarUrl" class="round"></open-data>
+          </view> 
+          <text class="margin-left text-lg"><open-data type="userNickName"></open-data>
+</text>
+          </view>
+         
+        </view>
+        <view class="flex-sub text-right editinfo" bindtap="bindphone">
+          <text class="cuIcon-mobilefill text-cyan"></text>
+        <text class="text-grey text-red">
+          <text wx:if="{{phonenum}}">{{phonenum}}</text>
+          <text wx:else>绑定手机</text>
+        </text>
+        </view>
+      </view>
+      
+  </view>
+ 
+  <block wx:else>
+  <view  class="margin-top"  style="background-image:url({{userInfo.avatarUrl}});filter:blur(30px);transform:scale(1);height: 200rpx;position: relative;z-index: 0">
+    
+  </view>
+ <view class="flex padding text-white" style="position: absolute;z-index: 10;top: 200rpx;width: 100%;">
+        <view class="flex-sub">
+          <view class="text-xs">
+          <view class="cu-avatar lg round" style="background-image:url({{userInfo.avatarUrl}});"></view> 
+          <text class="margin-left text-lg">{{userInfo.nickName}}</text>
+          </view>
+         
+        </view>
+        <view class="flex-sub text-right editinfo" bindtap="bindphone">
+          <text class="cuIcon-mobilefill text-cyan"></text>
+        <text class="text-grey text-black">绑定手机</text>
+        </view>
+      </view>
+
+</block>
+
+ <view class="padding">
+
+
+  <view class="cu-list grid col-3 gridBorder text-lg">
+    <view class="cu-item" bindtap="tolist" data-tabid="0">
+      <view class="cuIcon-formfill text-red"></view>
+      <text>我的发布</text>
+    </view>
+    <view class="cu-item" bindtap="tolist" data-tabid="1">
+      <view class="cuIcon-comment text-green"></view>
+      <text>我的留言</text>
+    </view>
+    <view class="cu-item" bindtap="tolist" data-tabid="2">
+      <view class="cuIcon-favorfill text-blue"></view>
+      <text>我的收藏</text>
+    </view>
+  </view>
+
+ </view>
+
+
+  <view class="cu-list menu card-menu  margin-bottom-xl shadow-lg radius">    
+    
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/my/qrcode" hover-class="none">
+        <text class="cuIcon-qrcode text-orange"></text>
+        <text class="text-grey">关注睢宁圈圈公众号</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/my/integration" hover-class="none">
+        <text class="cuIcon-recharge text-blue"></text>
+        <text class="text-grey">查看积分</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">      
+     <button class="cu-btn content" open-type="contact">
+        <text class="cuIcon-service text-cyan"></text>
+        <text class="text-grey">在线客服</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">意见反馈</text>
+      </button>
+    </view>
+  </view>
+
+<view class="text-center padding-left padding-right text-lg">
+    <view class="cu-btn text-center flex bg-white padding-xxl radius" style="height: 80rpx;" bindtap="logout">退出登录</view>
+</view>  
+<!-- <button class="margin cu-btn bg-green flex  lg text-lg padding" open-type="getUserInfo" bindgetuserinfo="getUserInfo"  >
+	微信授权登录
+</button> -->
+  <tabbar isCurrPage="my"></tabbar>
